@@ -1,7 +1,7 @@
 {
-  "name": "turtlecoin-crypto",
-  "version": "0.0.3",
-  "description": "Node C++ Addon for TurtleCoin Cryptographic Functions",
+  "name": "plenteum-crypto",
+  "version": "0.0.1",
+  "description": "Node C++ Addon for Plenteum Cryptographic Functions",
   "main": "index.js",
   "scripts": {
     "build": "node-gyp build",
@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turtlecoin/turtlecoin-crypto-node.git"
+    "url": "git+https://github.com/plenteum/node-plenteum-crypto.git"
   },
   "bugs": {
-    "url": "https://github.com/turtlecoin/turtlecoin-crypto-node/issues"
+    "url": "https://github.com/plenteum/node-plenteum-crypto/issues"
   },
   "engines": {
     "node": ">=6"
   },
   "engineStrict": true,
-  "homepage": "https://github.com/turtlecoin/turtlecoin-crypto-node#readme",
+  "homepage": "https://github.com/plenteum/node-plenteum-crypto#readme",
   "author": "The TurtleCoin Developers",
   "license": "GPL-3.0",
   "dependencies": {

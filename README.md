@@ -1,11 +1,13 @@
-[![NPM](https://nodei.co/npm/turtlecoin-crypto.png?downloads=true&stars=true)](https://nodei.co/npm/turtlecoin-crypto/)
+[![NPM](https://nodei.co/npm/plenteum-crypto.png?downloads=true&stars=true)](https://nodei.co/npm/plenteum-crypto/)
 
-[![Build Status](https://travis-ci.org/turtlecoin/node-turtlecoin-crypto.png?branch=master)](https://travis-ci.org/turtlecoin/node-turtlecoin-crypto) [![Build status](https://ci.appveyor.com/api/projects/status/github/turtlecoin/node-turtlecoin-crypto?branch=master&svg=true)](https://ci.appveyor.com/project/brandonlehmann/node-turtlecoin-crypto)
+[![Build Status](https://travis-ci.com/plenteum/node-plenteum-crypto.png?branch=master)](https://travis-ci.com/plenteum/node-plenteum-crypto) 
+[![Build status](https://ci.appveyor.com/api/projects/status/github/plenteum/node-plenteum-crypto?branch=master&svg=true)](https://ci.appveyor.com/project/plenteum/node-plenteum-crypto)
 
 #### Development Build Status
-[![Build Status](https://travis-ci.org/turtlecoin/node-turtlecoin-crypto.svg?branch=development)](https://travis-ci.org/turtlecoin/node-turtlecoin-crypto) [![Build status](https://ci.appveyor.com/api/projects/status/github/turtlecoin/node-turtlecoin-crypto?branch=development&svg=true)](https://ci.appveyor.com/project/brandonlehmann/node-turtlecoin-crypto)
+[![Build Status](https://travis-ci.com/plenteum/node-plenteum-crypto.svg?branch=development)](https://travis-ci.org/plenteum/node-plenteum-crypto) 
+[![Build status](https://ci.appveyor.com/api/projects/status/github/plenteum/node-plenteum-crypto?branch=development&svg=true)](https://ci.appveyor.com/project/plenteum/node-plenteum-crypto)
 
-# TurtleCoin Crypto Node Module
+# Plenteum Crypto Node Module
 
 This project is designed to expose the necessary C++ cryptographic methods from the C++ libraries as a [Node.js C++ Addon](https://nodejs.org/docs/latest-v8.x/api/addons.html#addons_c_addons) thereby providing high performance Node.js access to necessary methods.
 
@@ -32,13 +34,13 @@ Read very careful if you want this to work right the first time.
 ## Installation
 
 ```bash
-npm install turtlecoin-crypto
+npm install plenteum-crypto
 ```
 
 ## Intialization
 
 ```javascript
-const TurtleCoinCrypto = require('turtlecoin-crypto')
+const PlenteumCrypto = require('plenteum-crypto')
 ```
 
 ## Methods
@@ -52,7 +54,7 @@ Checks to verify that a public key is valid.
 ```javascript
 const publicKey = 
   '0e5dc2885517e4aff187804e7eac350120a920108388c9740361ab96193b1773'
-const valid = TurtleCoinCrypo.checkKey(publicKey)
+const valid = PlenteumCrypto.checkKey(publicKey)
 ```
 
 Returns a boolean value of true/false.
@@ -66,7 +68,7 @@ const transactionPublicKey =
   '0dc7837fdf24e61194e424dd8ac8a3d297de8056751a2627e5204f892b6bdb58'
 const signature = 
   'cfaeecf3bd68746b27826769b621b52518a9bed2c9ae46c97ac26a7d2b72110e'
-const valid = TurtleCoinCrypo.checkSignature(
+const valid = PlenteumCrypto.checkSignature(
   prefixHash, transactionPublicKey, signature
 )
 ```
@@ -85,7 +87,7 @@ const derivation =
 const outputIndex = 2
 const transactionPublicKey = 
     '854a637b2863af9e8e8216eb2382f3d16616b3ac3e53d0976fbd6f8da6c56418'
-const publicKey = TurtleCoinCrypto.derivePublicKey(
+const publicKey = PlenteumCrypto.derivePublicKey(
   derivation, outputIndex, transactionPublicKey
 )
 ```
@@ -104,7 +106,7 @@ const derivation =
 const outputIndex = 2
 const transactionSecretKey = 
     '7684dcb378de24960838d1ab7328f01d4506ae2643d166710ff056304dca880a'
-const secretKey = TurtleCoinCrypto.deriveSecretKey(
+const secretKey = PlenteumCrypto.deriveSecretKey(
   derivation, outputIndex, transactionSecretKey
 )
 ```
@@ -122,7 +124,7 @@ const secretKey =
   'e724c5905b0c8e3372adc58f0be04eb436dedb4e96998fcb509b2b3b82c8cbb6'
 const publicKey = 
   '7bd90a13b4039743744682899dc61a7317b5ceced01d695cdeae6409cdc70803'
-const derivation = TurtleCoinCrypto.generateKeyDerivation(secretKey, publicKey)
+const derivation = PlenteumCrypto.generateKeyDerivation(secretKey, publicKey)
 ```
 
 Returns the key derivation. Ex:
@@ -138,7 +140,7 @@ const publicKey =
   'e724c5905b0c8e3372adc58f0be04eb436dedb4e96998fcb509b2b3b82c8cbb6'
 const secretKey = 
   '7bd90a13b4039743744682899dc61a7317b5ceced01d695cdeae6409cdc70803'
-const keyImage = TurtleCoinCrypto.generateKeyImage(publicKey, secretKey)
+const keyImage = PlenteumCrypto.generateKeyImage(publicKey, secretKey)
 ```
 
 Returns the key image. Ex:
@@ -150,7 +152,7 @@ Returns the key image. Ex:
 Generates a random public and secret key pair
 
 ```javascript
-const keys = TurtleCoinCrypo.generateKeys()
+const keys = PlenteumCrypto.generateKeys()
 ```
 
 Example result below:
@@ -168,7 +170,7 @@ Generates the public key from the secret key.
 
 ```javascript
 const secretKey = '7684dcb378de24960838d1ab7328f01d4506ae2643d166710ff056304dca880a'
-const publicKey = TurtleCoinCrypto.secretKeyToPublicKey(secretKey)
+const publicKey = PlenteumCrypto.secretKeyToPublicKey(secretKey)
 ```
 
 Returns the publicKey for the supplied secretKey. Ex:
@@ -193,7 +195,7 @@ const inputKeys = [
 const transactionSecretKey = 
   '7684dcb378de24960838d1ab7328f01d4506ae2643d166710ff056304dca880a'
 const realInputIndex = 2
-const signatures = TurtleCoinCrypto.generateRingSignatures(
+const signatures = PlenteumCrypto.generateRingSignatures(
   prefixHash, keyImage, inputKeys, transactionSecretKey, realInputIndex
 )
 ```
@@ -222,7 +224,7 @@ const publicKey =
   '0dc7837fdf24e61194e424dd8ac8a3d297de8056751a2627e5204f892b6bdb58'
 const secretKey = 
   'cfaeecf3bd68746b27826769b621b52518a9bed2c9ae46c97ac26a7d2b72110e'
-const signature = TurtleCoinCrypo.generateSignature(
+const signature = PlenteumCrypto.generateSignature(
   prefixHash, publicKey, secretKey
 )
 ```
@@ -241,7 +243,7 @@ const derivation =
 const outputIndex = 2
 const derivedKey = 
     'bb55bef919d1c9f74b5b52a8a6995a1dc4af4c0bb8824f5dc889012bc748173d'
-const publicKey = TurtleCoinCrypto.underivePublicKey(
+const publicKey = PlenteumCrypto.underivePublicKey(
   derivation, outputIndex, derivedKey
 )
 ```
@@ -259,7 +261,7 @@ Performs the cn_fast_hash function against the data
 ```javascript
 const data =
   '0100fb8e8ac805899323371bb790db19218afd8db8e3755d8b90f39b3d5506a9abce4fa912244500'
-const hash = TurtleCoinCrypto.cnFastHash(data)
+const hash = PlenteumCrypto.cnFastHash(data)
 ```
 
 Returns the hash of the supplied data. Ex:
@@ -273,7 +275,7 @@ Performs the cn_turtle_lite_slow_hash_v0 function against the data
 ```javascript
 const data =
   '0100fb8e8ac805899323371bb790db19218afd8db8e3755d8b90f39b3d5506a9abce4fa912244500'
-const hash = TurtleCoinCrypto.cn_turtle_lite_slow_hash_v0(data)
+const hash = PlenteumCrypto.cn_turtle_lite_slow_hash_v0(data)
 ```
 
 Returns the hash of the supplied data. Ex:
@@ -289,7 +291,7 @@ Performs the cn_turtle_lite_slow_hash_v1 function against the data
 ```javascript
 const data =
   '0100fb8e8ac805899323371bb790db19218afd8db8e3755d8b90f39b3d5506a9abce4fa912244500323443'
-const hash = TurtleCoinCrypto.cn_turtle_lite_slow_hash_v1(data)
+const hash = PlenteumCrypto.cn_turtle_lite_slow_hash_v1(data)
 ```
 
 Returns the hash of the supplied data. Ex:
@@ -305,7 +307,7 @@ Performs the cn_turtle_lite_slow_hash_v2 function against the data
 ```javascript
 const data =
   '0100fb8e8ac805899323371bb790db19218afd8db8e3755d8b90f39b3d5506a9abce4fa912244500323443'
-const hash = TurtleCoinCrypto.cn_turtle_lite_slow_hash_v2(data)
+const hash = PlenteumCrypto.cn_turtle_lite_slow_hash_v2(data)
 ```
 
 Returns the hash of the supplied data. Ex:
@@ -317,6 +319,7 @@ Returns the hash of the supplied data. Ex:
 
 ```
 Copyright (C) 2018-2019, The TurtleCoin Developers
+Copyright (C) 2018-2019, The Plenteum Developers
 
 Please see the included LICENSE file for more information.
 ```

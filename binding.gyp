@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "turtlecoin-crypto",
+      "target_name": "plenteum-crypto",
       "defines": [
         "NDEBUG"
       ],
@@ -30,7 +30,7 @@
         "src/slow-hash.c",
         "src/StringTools.cpp",
         "src/tree-hash.c",
-        "src/turtlecoin-crypto.cpp"
+        "src/plenteum-crypto.cpp"
       ],
       "cflags!": [
         "-std=c11",
